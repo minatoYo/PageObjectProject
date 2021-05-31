@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                //echo 'Building..'
+                sh 'gradlew +x gradlew'
+            }
+        }
+        stage('Test') {
+            steps {
+                ///echo 'Testing..'
+                sh './gradlew clean test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
