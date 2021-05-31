@@ -4,12 +4,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                //echo 'Building..'
+                sh 'gradlew +x gradlew'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                ///echo 'Testing..'
+                sh './gradlew clean test'
             }
         }
         stage('Deploy') {
